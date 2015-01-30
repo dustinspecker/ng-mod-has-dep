@@ -1,6 +1,6 @@
 {
   "name": "ng-mod-has-dep",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Check if Angular module has a dependency",
   "license": "MIT",
   "main": "index.js",
