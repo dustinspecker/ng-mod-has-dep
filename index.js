@@ -2,9 +2,9 @@
 
 /**
  * Returns if dependency is listed in app's dependencies
- * @param {String} fileContents
- * @param {String} dependency
- * @return {Boolean}
+ * @param {String} fileContents - Angular module file
+ * @param {String} dependency - module dependency to look for
+ * @return {Boolean} - dependency is included
  */
 module.exports = function ngModHasDep(fileContents, dependency) {
   var regex = new RegExp('[.]module[^$]*\'[^$]*\', \\[[^$]*\'' + dependency + '\'[^$]*\\]');
