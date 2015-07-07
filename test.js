@@ -1,24 +1,26 @@
 /* global describe, beforeEach, it */
 'use strict';
-var assert = require('assert')
-  , EOL = require('os').EOL
-  , ngModHasDep = require('./');
+import assert from 'assert';
+import {EOL} from 'os';
+import ngModHasDep from './lib/';
 
-describe('ng-mod-has-dep', function () {
-  var fileContents;
+describe('ng-mod-has-dep', () => {
+  let fileContents;
 
-  beforeEach(function () {
-    fileContents = ['angular' + EOL,
-                    '  .module(\'module\', [' + EOL,
-                    '    \'test\'' + EOL,
-                    '  ]);'].join('');
+  beforeEach(() => {
+    fileContents = [
+      `angular${EOL}`,
+      `  .module('module', [${EOL}`,
+      `    'test'${EOL}`,
+      `  ]);`
+    ].join('');
   });
 
-  it('should have test dep', function () {
+  it('should have test dep', () => {
     assert(ngModHasDep(fileContents, 'test') === true);
   });
 
-  it('should not have test1 dep', function () {
+  it('should not have test1 dep', () => {
     assert(ngModHasDep(fileContents, 'test1') === false);
   });
 });
