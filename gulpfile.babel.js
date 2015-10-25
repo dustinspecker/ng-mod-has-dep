@@ -14,9 +14,7 @@ const srcFiles = 'src/*.js'
 
   , destDir = './lib/';
 
-gulp.task('clean', (cb) => {
-  del(destDir, cb);
-});
+gulp.task('clean', () => del(destDir));
 
 gulp.task('lint', () => {
   return gulp.src([srcFiles, testFiles])
