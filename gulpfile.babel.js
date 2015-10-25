@@ -24,6 +24,7 @@ gulp.task('lint', () => {
     .pipe(jscs({
       esnext: true
     }))
+    .pipe(jscs.reporter())
     .pipe(jshint());
 });
 
