@@ -6,7 +6,7 @@
  * @param {String} dependency - module dependency to look for
  * @return {Boolean} - dependency is included
  */
-export default function ngModHasDep(fileContents, dependency) {
+module.exports = function (fileContents, dependency) {
   const regex = new RegExp(`[.]module[^$]*'[^$]*', \\[[^$]*'${dependency}'[^$]*\\]`);
   return regex.test(fileContents);
-}
+};
