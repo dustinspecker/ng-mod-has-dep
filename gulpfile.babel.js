@@ -5,8 +5,6 @@ import del from 'del';
 import eslint from 'gulp-eslint';
 import gulp from 'gulp';
 import istanbul from 'gulp-istanbul';
-import jscs from 'gulp-jscs';
-import jshint from 'gulp-jshint';
 import mocha from 'gulp-mocha';
 
 const srcFiles = 'src/*.js'
@@ -19,12 +17,7 @@ gulp.task('clean', () => del(destDir));
 gulp.task('lint', () => {
   return gulp.src([srcFiles, testFiles])
     .pipe(eslint())
-    .pipe(eslint.formatEach('./node_modules/eslint-path-formatter'))
     .pipe(eslint.failOnError())
-    .pipe(jscs())
-    .pipe(jscs.reporter('fail'))
-    .pipe(jscs.reporter())
-    .pipe(jshint());
 });
 
 gulp.task('compile', ['clean', 'lint'], () => {
