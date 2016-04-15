@@ -8,5 +8,6 @@
  */
 module.exports = function (fileContents, dependency) {
   const regex = new RegExp(`[.]module[^$]*'[^$]*', \\[[^$]*'${dependency}'[^$]*\\]`)
+
   return regex.test(fileContents)
 }
